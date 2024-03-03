@@ -4,6 +4,7 @@ import './globals.css';
 import ConvexClientProvider from './ConvexClientProvider';
 import { ClerkProvider } from '@clerk/nextjs';
 import { ConvexProviderWithClerk } from 'convex/react-clerk';
+import { Header } from './header';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -20,7 +21,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <ConvexClientProvider>{children}</ConvexClientProvider>
+        <ConvexClientProvider>
+          <Header />
+          {children}
+        </ConvexClientProvider>
       </body>
     </html>
   );
